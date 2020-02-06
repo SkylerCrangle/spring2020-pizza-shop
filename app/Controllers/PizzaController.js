@@ -10,6 +10,9 @@ function _draw() {
     template += pizza.Template
   })
   pizzaElem.innerHTML = template
+
+  _pizzaService.calcTotalPrice()
+  //document.getElementById("totalId").innerText = `Total Price:`
 }
 
 //testing push

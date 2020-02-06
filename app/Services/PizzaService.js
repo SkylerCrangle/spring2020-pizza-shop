@@ -32,25 +32,36 @@ class PizzaService {
     let delThisTop = herePizza.ingredients.findIndex(toppining => toppining.id === idTopping)
     herePizza.ingredients.splice(delThisTop, 1)
     _store.saveState()
-
-
-    // _store.State.pizzas = newPizzas
-    // _store.State.pizzas = newPizzas
-
-
-    /* _store.State.pizzas = pizzas.map(p => {
-     let pizza = new Pizza(p)
-     pizza.ingredients = pizza.ingredients.map(i => new Ingredient(i))
-
-*/
   }
 
+  calcTotalPrice() {
+    let totalPrice = 0
+    for (let i = 0; i < _store.State.pizzas.length; i++) {
+      for (let j = 0; j < _store.State.pizzas[i].ingredients.length; j++) {
+        totalPrice += _store.State.pizzas[i].ingredients[j].toppingPrice
+      }
+      totalPrice += _store.State.pizzas[i].pizzaPrice
+    }
+    console.log(totalPrice)
+    return totalPrice
+  }
+
+  // _store.State.pizzas = newPizzas
+  // _store.State.pizzas = newPizzas
 
 
+  /* _store.State.pizzas = pizzas.map(p => {
+   let pizza = new Pizza(p)
+   pizza.ingredients = pizza.ingredients.map(i => new Ingredient(i))
 
-
-
+*/
 }
+
+
+
+
+
+
 
 const PIZZASERVICE = new PizzaService()
 export default PIZZASERVICE

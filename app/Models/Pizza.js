@@ -9,6 +9,7 @@ export default class Pizza {
     this.pizzaName = data.pizzaName
     this.id = data.id || generateId()
     this.ingredients = data.ingredients || []
+    this.pizzaPrice = 32
   }
 
   get Ingredients() {
@@ -24,7 +25,7 @@ export default class Pizza {
   get Template() {
     return /*html*/`
 <div class="col-6">
-<h1>${this.pizzaName}</h1>
+<h1>${this.pizzaName} $${this.pizzaPrice}</h1>
 <button onclick="app.pizzaController.deletePizza('${this.id}')" class="btn btn-danger">Delete</button>
 <h3>Ingredients: ${this.Ingredients}</h3>
 <form onsubmit="app.pizzaController.addIngredient(event, '${this.id}')">
