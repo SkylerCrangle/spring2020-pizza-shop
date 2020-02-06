@@ -26,6 +26,30 @@ class PizzaService {
     _store.saveState()
 
   }
+
+  delTopping(idPizza, idTopping) {
+    let herePizza = _store.State.pizzas.find(pizza => pizza.id == idPizza)
+    let delThisTop = herePizza.ingredients.findIndex(toppining => toppining.id === idTopping)
+    herePizza.ingredients.splice(delThisTop, 1)
+    _store.saveState()
+
+
+    // _store.State.pizzas = newPizzas
+    // _store.State.pizzas = newPizzas
+
+
+    /* _store.State.pizzas = pizzas.map(p => {
+     let pizza = new Pizza(p)
+     pizza.ingredients = pizza.ingredients.map(i => new Ingredient(i))
+
+*/
+  }
+
+
+
+
+
+
 }
 
 const PIZZASERVICE = new PizzaService()

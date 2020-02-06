@@ -15,9 +15,11 @@ export default class Pizza {
     let template = ""
     this.ingredients.forEach(ingredient => {
       template += ingredient.Template
+      template += `<button onclick="app.pizzaController.delTopping('${this.id}', '${ingredient.id}')" class="btn btn-danger">Delete</button>`
     })
     return template
   }
+
 
   get Template() {
     return /*html*/`
