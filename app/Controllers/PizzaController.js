@@ -11,8 +11,8 @@ function _draw() {
   })
   pizzaElem.innerHTML = template
 
-  _pizzaService.calcTotalPrice()
-  //document.getElementById("totalId").innerText = `Total Price:`
+  let totalPrice = _pizzaService.calcTotalPrice()
+  document.getElementById("totalId").innerText = `Total Price: $${totalPrice}`
 }
 
 //testing push
